@@ -2,6 +2,7 @@
 
 /* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
 
 /* Reset some basic styles */
 * {
@@ -15,6 +16,29 @@ body {
     background-color: #f5f5f5;
     padding: 20px;
     animation: fadeInBody 1s ease-in-out;
+    transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode nav ul {
+    background-color: #222;
+}
+
+body.dark-mode .product,
+body.dark-mode form {
+    background-color: #1e1e1e;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode h1,
+body.dark-mode label,
+body.dark-mode .description,
+body.dark-mode .price {
+    color: #f5f5f5;
 }
 
 @keyframes fadeInBody {
@@ -31,6 +55,7 @@ nav ul {
     margin-bottom: 30px;
     border-radius: 8px;
     animation: slideDownNav 1s ease-out;
+    flex-wrap: wrap;
 }
 
 @keyframes slideDownNav {
@@ -39,16 +64,16 @@ nav ul {
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 8px 15px;
 }
 
 nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
-    padding: 8px 12px;
+    padding: 10px 16px;
     transition: background 0.3s ease, transform 0.3s ease;
-    border-radius: 5px;
+    border-radius: 8px;
 }
 
 nav ul li a:hover {
@@ -60,6 +85,7 @@ h1 {
     text-align: center;
     margin-bottom: 20px;
     color: #333;
+    font-family: 'Montserrat', sans-serif;
     animation: fadeInTitle 1.2s ease;
 }
 
@@ -73,10 +99,15 @@ h1 {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     text-align: center;
     animation: popUpProduct 1.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.product:hover {
+    transform: translateY(-5px);
 }
 
 @keyframes popUpProduct {
@@ -87,7 +118,7 @@ h1 {
 .product img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 12px;
     transition: transform 0.5s ease;
 }
 
@@ -95,58 +126,34 @@ h1 {
     transform: scale(1.05);
 }
 
-.carousel {
-    overflow: hidden;
-    width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.carousel-track {
-    display: flex;
-    animation: slideCarousel 9s infinite ease-in-out;
-}
-
-.carousel-track img {
-    width: 100%;
-    flex-shrink: 0;
-    border-radius: 10px;
-    transition: transform 0.5s ease;
-}
-
-@keyframes slideCarousel {
-    0% { transform: translateX(0); }
-    33% { transform: translateX(-100%); }
-    66% { transform: translateX(-200%); }
-    100% { transform: translateX(0); }
-}
-
 .description {
     margin: 15px 0;
     color: #666;
+    font-size: 1.1rem;
 }
 
 .price {
-    font-size: 24px;
+    font-size: 26px;
     color: #e91e63;
     margin-bottom: 15px;
+    font-weight: 700;
 }
 
 button {
     background-color: #e91e63;
     color: white;
     border: none;
-    padding: 12px 20px;
-    border-radius: 6px;
+    padding: 14px 24px;
+    border-radius: 8px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 18px;
     transition: background 0.3s ease, transform 0.3s ease;
+    font-family: 'Montserrat', sans-serif;
 }
 
 button:hover {
     background-color: #d81b60;
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 form {
@@ -154,9 +161,10 @@ form {
     background: white;
     padding: 20px;
     margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 12px;
+    box-shadow: 0 6px 12px rgba(0,0,0,0.1);
     animation: fadeInForm 1.5s ease;
+    transition: background-color 0.3s ease;
 }
 
 @keyframes fadeInForm {
@@ -168,16 +176,24 @@ form label {
     display: block;
     margin-bottom: 8px;
     color: #555;
+    font-weight: 600;
 }
 
 form input {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
 }
 
 form button {
     width: 100%;
+    background-color: #4CAF50;
+    font-size: 18px;
+}
+
+form button:hover {
+    background-color: #45a049;
 }
